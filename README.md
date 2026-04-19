@@ -1,30 +1,40 @@
-**Twitter Sentiment Analysis: Avatar: The Last Airbender**
-Academic Project | Data Scraping & Text Preprocessing
+**Twitter Data Scraping & Text Preprocessing: Avatar The Last Airbender**
+Academic Project | Data Mining & Natural Language Processing
 
 📌 Project Overview
-This project analyzes public sentiment and audience reception of Avatar: The Last Airbender by leveraging real-time social media discourse. I performed Web Scraping on Twitter to collect user opinions and implemented a specialized Text Preprocessing pipeline to handle the linguistic nuances of social media data.
+This project focuses on the end-to-end pipeline of handling unstructured social media data. It covers the process from automated data acquisition using Node.js to advanced text preprocessing, ensuring the dataset is clean and ready for statistical analysis or sentiment modeling.
 
 🛠️ Tech Stack
-Language: Python
+- Environment: Google Colab, Node.js
 
-Libraries: Pandas, NLTK, Regex, Matplotlib, WordCloud
+- Tools: tweet-harvest (for automated scraping)
 
-🔍 Key Features
-1. Data Acquisition: Scraped raw tweets related to "Avatar: The Last Airbender" to capture authentic audience feedback and trending discussions.
+- Libraries: Pandas, NLTK, Regex (Regular Expressions)
 
-2. Social Media Data Cleaning: Developed custom Regex functions to handle Twitter-specific noise, including:
+🔍 Methodology
+1. Data Acquisition (Automated Scraping)
+Due to current API limitations, I implemented a workaround using Node.js and the tweet-harvest library to collect public discourse on X (Twitter).
 
-- Removing mentions (@user), hashtags (#), and URLs.
+  - Process: Configured a Linux-based environment in Colab to execute automated crawling.
 
-- Filtering out emojis, symbols, and non-alphanumeric characters.
+  - Result: Successfully retrieved 1,507 raw tweets using the keyword "avatar the last airbender" (Indonesian language).
 
-3. Preprocessing Pipeline:
+2. Advanced Text Preprocessing
+Social media data is inherently noisy. I developed a multi-stage cleaning pipeline to ensure data quality:
 
-- Case Folding & Tokenization: Standardizing text for uniform analysis.
+  - Text Cleaning: Removed URLs, usernames (@), HTML elements, punctuation, and excessive whitespace.
 
-- Stopwords Removal: Eliminating common words to focus on sentiment-bearing terms.
+  - Noise Removal: Specifically filtered out emojis, emoticons, and hashtags to focus on the core textual sentiment.
 
-- Lemmatization: Reducing words to their base form to ensure analytical consistency across different word variations.
+  - Deduplication: Identified and removed duplicate entries, refining the dataset from 1,507 to 1,353 unique records.
 
+  - Tokenization: Segmented sentences into individual tokens for granular analysis.
 
+3. Feature Selection & Refinement
+To optimize the dataset for further analysis, I applied several NLP techniques:
 
+  - Stopwords Removal: Filtered out common non-informative words.
+
+  - Lemmatization: Reduced words to their base dictionary form to ensure consistency.
+
+  - Data Structuring: Removed irrelevant columns and exported the final processed dataset into a clean CSV format.
